@@ -2,16 +2,27 @@
 {% block content %}
     {% if articles %}
         {% for article in (articles_page.object_list if articles_page else articles) %}
-            <article>
-                <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
-                {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
-                    <div class="well well-sm">
-                        {% include "includes/article_info.html" %}
+            <article class="row">
+                
+                {% if article.thumbnail %}
+                {# <div class="col-xs-3 col-lg-2" > #}
+                    <img class="thumbnail col-xs-3 col-lg-2" src="{{ article.thumbnail }}" />
+                {# </div> #}
+                {% else %}
+                <div class="col-xs-3 col-lg-2"></div>
+                 {% endif %}
+                
+                <div class="col-xs-8">
+                    <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+                    {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
+                        <div class="well well-sm">
+                            {% include "includes/article_info.html" %}
+                        </div>
+                    {% endif %}
+                    <div class="summary">{{ article.summary }}
+                        {% include 'includes/comment_count.html' %}
+                        <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">more ...</a>
                     </div>
-                {% endif %}
-                <div class="summary">{{ article.summary }}
-                    {% include 'includes/comment_count.html' %}
-                    <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">more ...</a>
                 </div>
             </article>
             <hr/>

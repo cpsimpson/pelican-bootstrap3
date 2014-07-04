@@ -157,3 +157,25 @@ figure.floatcenter, .align-center {
 .tagcloud li {
     padding: 0px;
 }
+
+.strike {
+  text-decoration: line-through;
+}
+
+.avatar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.navbar.tk-daniel{
+    font-size: 1.25em;
+}
+
+.navbar-brand.tk-daniel{
+    font-size: 2em;
+}
+
+
